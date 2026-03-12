@@ -191,7 +191,10 @@ contract InteractiveNovelDAO {
             }
         }
         
-        require(winningBranchId > 0, "No votes cast");
+        // 如果没人投票，默认选第一个分支
+        if (winningBranchId == 0) {
+            winningBranchId = 1;
+        }
         
         chapter.winningBranchId = winningBranchId;
         chapter.branches[winningBranchId].isWinner = true;

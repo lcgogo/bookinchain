@@ -254,7 +254,8 @@ contract InteractiveNovelDAO {
         
         // 退款多余金额
         if (msg.value > totalFee) {
-            payable(msg.sender).transfer(msg.value - totalFee);
+            (bool success, ) = payable(msg.sender).call{value: msg.value - totalFee}("");
+            require(success, "Transfer failed");
         }
     }
     
@@ -322,7 +323,8 @@ contract InteractiveNovelDAO {
         
         // 退款
         if (msg.value > fee) {
-            payable(msg.sender).transfer(msg.value - fee);
+            (bool success, ) = payable(msg.sender).call{value: msg.value - fee}("");
+            require(success, "Transfer failed");
         }
     }
     
@@ -397,7 +399,8 @@ contract InteractiveNovelDAO {
     function withdraw() external onlyAuthor {
         uint256 balance = address(this).balance;
         require(balance > 0, "No funds");
-        payable(author).transfer(balance);
+        (bool success, ) = payable(author).call{value: balance}("");
+        require(success, "Transfer failed");
     }
     
     function updateFees(

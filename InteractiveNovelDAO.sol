@@ -388,7 +388,7 @@ contract InteractiveNovelDAO {
         return chapterForkLicenses[_chapterId];
     }
     
-    function hasReadStoryLine(address /* _reader */, uint256 _storyLineId) public view returns (bool) {
+    function hasReadStoryLine(address _reader, uint256 /* _storyLineId */) public view returns (bool) {
         ReaderState storage reader = readerStates[_reader];
         return reader.unlockedChapterCount > 0;
     }

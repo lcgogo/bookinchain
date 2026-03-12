@@ -239,7 +239,6 @@ contract InteractiveNovelDAO {
         // 计算从当前解锁位置开始的章节费用
         uint256 totalFee = 0;
         uint256 chapterPointer = storyLine.rootChapterId;
-        uint256 unlocked = 0;
         
         for (uint256 i = 0; i < currentUnlocked && chapterPointer > 0; i++) {
             chapterPointer = chapters[chapterPointer].parentChapterId == 0 ? 

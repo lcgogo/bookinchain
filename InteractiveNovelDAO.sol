@@ -8,7 +8,7 @@ pragma solidity ^0.8.20;
 contract InteractiveNovelDAO {
     
     // ============ 状态变量 ============
-    address public author;              // 原作者
+    address internal author;              // 原作者
     uint256 public baseChapterFee;      // 基础章节费用
     uint256 public voteFee;             // 投票费用
     uint256 public forkLicenseRate;     // 分叉授权费率 (基点 10000=100%)

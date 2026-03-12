@@ -271,12 +271,14 @@ function AuthorPanel({ reload }) {
           </label>
           <input
             type="number"
-            min="1"
+            min="0.001"
             max="30"
+            step="0.001"
             className="w-full border rounded-lg px-3 py-2"
             value={form.votingDays}
             onChange={(e) => setForm(prev => ({ ...prev, votingDays: Number(e.target.value) }))}
           />
+          <p className="text-xs text-gray-500 mt-1">最小 0.001 天（约 86 秒），用于快速测试</p>
         </div>
 
         <button

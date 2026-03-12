@@ -113,7 +113,7 @@ contract InteractiveNovelDAO {
     // ============ 作者功能 ============
     
     // 显式 getter，防止 immutable 导致的问题
-    function author() public view returns (address) {
+    function getAuthor() public view returns (address) {
         return author;
     }
     
